@@ -5,7 +5,7 @@ CREATE TABLE zoo (
   height INT,
   age INT
 );
-
+--
 INSERT INTO zoo VALUES 
 ('gorilla', 'omnivore', 215, 180, 5),
 ('tiger', 'carnivore', 220, 115, 3),
