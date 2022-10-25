@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>
+        <img id="game" src="ws_45/img/paper.png" alt="" />
+    </button>
+    <button id="stop">STOP</button>
+    <script>
+        // 0 1 2
+        let i = 0
+        const cases = ["scissors","rock","paper"]
+        
+        let img=document.querySelector("#game")
+        
+        const btn = document.querySelector("#stop")
+
+        btn.addEventListener("click",function() {
+            const timer = setInterval(function() {
+                i = (i + 1)
+            })
+        })
+
+        
+    </script>
+</body>
+</html>
