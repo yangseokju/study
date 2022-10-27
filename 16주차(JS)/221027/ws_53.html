@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    const bodyTag = document.querySelector('body')
+    const URL_API = 'https://api.themoviedb.org/3/movie/popular?api_key=9198ea87f7de9b2dba9436007a2e502b&language=ko-KR&page=1'
+    const h1Tag = document.createElement('h1')
+    h1Tag.innerText = '인기 영화들'
+    bodyTag.appendChild(h1Tag)
+
+    function movies() {
+        axios.get(URL_API)
+        .then((response) => {
+            console.log(response.data.results)
+            const ulTag = document.createElement('ul')
+            bodyTag.appendChild(ulTag)
+            response.data.results.forEach(movie => {
+                if (movie.vote_average >= 7.0) {
+                const liTag = document.createElement('li')
+                ulTag.appendChild(liTag)
+                    liTag.innerText = movie.title
+                }
+            });
+        })
+    }
+
+    movies()
+</script>
+</html>
