@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Article, Comment
 from .forms import ArticleForm, CommentForm
 
+from django.http import JsonResponse
 
 # Create your views here.
 @require_safe
@@ -124,9 +125,14 @@ def likes(request, article_pk):
         if article.like_users.filter(pk=request.user.pk).exists():
             # 좋아요 취소 (remove)
             article.like_users.remove(request.user)
+            is_liked = False
         else:
             # 좋아요 추가 (add)
             article.like_users.add(request.user)
-        return redirect('articles:index')
+            is_liked = True
+        context = {
+            'is_liked' : is_liked,
+        }
+        return JsonResponse(context)
     return redirect('accounts:login')
     
