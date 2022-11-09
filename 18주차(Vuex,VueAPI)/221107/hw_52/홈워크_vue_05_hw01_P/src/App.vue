@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     counterDouble() {
-      return this.$store.getters.counter
+      return this.$store.getters.counterdouble
     },
   },
 }
